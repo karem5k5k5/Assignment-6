@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "9b9652eb-d7e0-4c4f-abe4-d2ff204caafb",
+		"name": "Assignment-6",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "41531190"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "user signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"user\",\r\n    \"email\":\"user@g.com\",\r\n    \"password\":\"123456\",\r\n    \"dob\":\"1998-03-17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/user/signup"
+					},
+					"response": []
+				},
+				{
+					"name": "create or update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"user123\",\r\n    \"email\":\"user123@g.com\",\r\n    \"password\":\"123456\",\r\n    \"dob\":\"1998-03-17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/user/3"
+					},
+					"response": []
+				},
+				{
+					"name": "find by email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"user123\",\r\n    \"email\":\"user123@g.com\",\r\n    \"password\":\"123456\",\r\n    \"dob\":\"1998-03-17\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/by-email?email=user@g.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"by-email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "user@g.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"user\",\r\n    \"email\":\"user@g.com\",\r\n    \"password\":\"123456\",\r\n    \"dob\":\"1998-03-17\"\r\n}"
+						},
+						"url": "http://localhost:3000/user/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"item": [
+				{
+					"name": "create new post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"t1\",\r\n    \"content\":\"c1\",\r\n    \"userId\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/post"
+					},
+					"response": []
+				},
+				{
+					"name": "delete post",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "userid",
+								"value": "1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"t1\",\r\n    \"content\":\"c1\",\r\n    \"userId\":\"1\"\r\n}"
+						},
+						"url": "http://localhost:3000/post/1"
+					},
+					"response": []
+				},
+				{
+					"name": "get all posts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"t1\",\r\n    \"content\":\"c1\",\r\n    \"userId\":\"1\"\r\n}"
+						},
+						"url": "http://localhost:3000/post/details"
+					},
+					"response": []
+				},
+				{
+					"name": "get posts by comment count",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"t1\",\r\n    \"content\":\"c1\",\r\n    \"userId\":\"1\"\r\n}"
+						},
+						"url": "http://localhost:3000/post/comment-count"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "create comments",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comments\":[\r\n        {\r\n            \"content\":\"comm1\",\r\n            \"userId\":\"3\",\r\n            \"postId\":\"3\"\r\n        },\r\n        {\r\n            \"content\":\"comm2\",\r\n            \"userId\":\"3\",\r\n            \"postId\":\"3\"\r\n        },\r\n        {\r\n            \"content\":\"comm3\",\r\n            \"userId\":\"3\",\r\n            \"postId\":\"3\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/comment"
+					},
+					"response": []
+				},
+				{
+					"name": "find or create comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comments\":[\r\n        {\r\n            \"content\":\"comm1\",\r\n            \"userId\":\"3\",\r\n            \"postId\":\"3\"\r\n        },\r\n        {\r\n            \"content\":\"comm2\",\r\n            \"userId\":\"3\",\r\n            \"postId\":\"3\"\r\n        },\r\n        {\r\n            \"content\":\"comm3\",\r\n            \"userId\":\"3\",\r\n            \"postId\":\"3\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": "http://localhost:3000/comment/find-or-create"
+					},
+					"response": []
+				},
+				{
+					"name": "update comment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"comment_1\",\r\n    \"userId\":\"3\",\r\n    \"postId\":\"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/comment/1"
+					},
+					"response": []
+				},
+				{
+					"name": "get comment by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"comment_1\",\r\n    \"userId\":\"3\",\r\n    \"postId\":\"3\"\r\n}"
+						},
+						"url": "http://localhost:3000/comment/1"
+					},
+					"response": []
+				},
+				{
+					"name": "find comment by word",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"comment_1\",\r\n    \"userId\":\"3\",\r\n    \"postId\":\"3\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/comment/serach?word=com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comment",
+								"serach"
+							],
+							"query": [
+								{
+									"key": "word",
+									"value": "com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get 3 most recent comments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"comment_1\",\r\n    \"userId\":\"3\",\r\n    \"postId\":\"3\"\r\n}"
+						},
+						"url": "http://localhost:3000/comment/newest/3"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
